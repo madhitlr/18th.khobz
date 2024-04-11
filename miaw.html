@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<style>
+    body {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: center;
+        background-color: #000;
+        background-image: url(miaw.png);
+        background-size: cover;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #countdown {
+        font-size: 2rem;
+        margin-top: 50px;
+        border: 5px solid #ea6914;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #000;
+        box-shadow: 0 0 10px #fff311;
+        display: inline-block;
+
+    }
+
+    #invitation {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-weight: 300;
+        font-size: 3rem;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <div id="invitation">Mad will be legal after :</div>
+<div id="countdown"></div>
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Apr 18, 2024 00:00:00").getTime();
+
+    // Update the countdown every 1 second
+    var x = setInterval(function() {
+
+        // Get the current date and time
+        var now = new Date().getTime();
+
+        // Calculate the remaining time
+        var distance = countDownDate - now;
+
+        // Calculate days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById("countdown").innerHTML = days + " DAYS " + hours + " HOURS "
+        + minutes + " MINUTES " + seconds + " SECONDS ";
+
+        // If the countdown is over, display a message
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+    
+</script>
+</body>
+</html>
+
+
+
+	
